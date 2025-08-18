@@ -12,7 +12,7 @@ interface CalendarDrawerProps {
   onClose: () => void;
 }
 
-const CalendarCard: React.FC<CalendarDrawerProps> = ({ isOpen, onClose }) => {
+const CalendarDrawer: React.FC<CalendarDrawerProps> = ({ isOpen, onClose }) => {
   const drawerRef = useRef<HTMLDivElement | null>(null);
   useClickOutside(drawerRef, onClose);
 
@@ -58,4 +58,4 @@ const CalendarCard: React.FC<CalendarDrawerProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default CalendarCard;
+export default CalendarDrawer;

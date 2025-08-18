@@ -4,62 +4,70 @@ import { assets } from "../../constants/assets";
 import Tooltip from "./ToolTip";
 import BudgetingCard from "../modals/BudgetingCard";
 import ModalOverlay from "../ModalOverlay";
-import CalendarDrawer from "./Calendar";
+import CalendarDrawer from "./CalendarDrawer";
+
+interface HeaderIconButtonProps {
+  src: string;
+  alt: string;
+  tooltip?: string;
+  size?: number;
+  onClick?: () => void;
+}
+
+const HeaderIconButton: React.FC<HeaderIconButtonProps> = ({
+  src,
+  alt,
+  tooltip,
+  size = 32,
+  onClick,
+}) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Icon
+        src={src}
+        alt={alt}
+        size={size}
+        onClick={onClick}
+        className={`cursor-pointer transition-transform duration-150 
+          ${
+            onClick ? "hover:scale-110 active:scale-95" : "pointer-events-none"
+          }`}
+      />
+
+      {onClick && <Tooltip text={tooltip ?? ""} isVisible={hovered} />}
+    </div>
+  );
+};
 
 const HeaderIcons: React.FC = () => {
-  const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
   const [isBudgetModalOpen, setIsBudgetModalOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   return (
     <div className="flex items-center gap-6 relative">
-      <div className="relative">
-        <Icon
-          src={assets.bellIcon}
-          alt="General Notifications Icon"
-          size={32}
-          className="pointer-events-none"
-        />
-      </div>
+      <HeaderIconButton src={assets.bellIcon} alt="General Notifications" />
 
-      <div
-        className="relative"
-        onMouseEnter={() => setHoveredIcon("calculator")}
-        onMouseLeave={() => setHoveredIcon(null)}
-      >
-        <Icon
-          src={assets.calculatorIcon}
-          alt="Calculator Icon"
-          size={32}
-          className="cursor-pointer"
-          onClick={() => setIsBudgetModalOpen(true)}
-        />
-        <Tooltip text="Budgeting" isVisible={hoveredIcon === "calculator"} />
-      </div>
+      <HeaderIconButton
+        src={assets.calculatorIcon}
+        alt="Budgeting"
+        tooltip="Budgeting"
+        onClick={() => setIsBudgetModalOpen(true)}
+      />
 
-      <div
-        className="relative"
-        onMouseEnter={() => setHoveredIcon("calendar")}
-        onMouseLeave={() => setHoveredIcon(null)}
-      >
-        <Icon
-          src={assets.calendarIcon}
-          alt="Calendar Icon"
-          size={32}
-          className="cursor-pointer"
-          onClick={() => setIsCalendarOpen(true)}
-        />
-        <Tooltip text="Calendar" isVisible={hoveredIcon === "calendar"} />
-      </div>
+      <HeaderIconButton
+        src={assets.calendarIcon}
+        alt="Calendar"
+        tooltip="Calendar"
+        onClick={() => setIsCalendarOpen(true)}
+      />
 
-      <div className="relative">
-        <Icon
-          src={assets.messageIcon}
-          alt="Message Notifications Icon"
-          size={32}
-          className="pointer-events-none"
-        />
-      </div>
+      <HeaderIconButton src={assets.messageIcon} alt="Messages" />
 
       <ModalOverlay
         isOpen={isBudgetModalOpen}

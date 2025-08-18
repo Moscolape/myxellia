@@ -22,17 +22,61 @@ const SalesOverviewCard: React.FC = () => {
 
   const currentChartData = chartData[activeTab];
   const currentStatData = statData[activeTab];
-  const xKey =
-    activeTab === "1 Week" ? "day" : activeTab === "1 Month" ? "week" : "month";
+
+  const xKeyMap: Record<TabKey, string> = {
+    "1 Week": "day",
+    "1 Month": "week",
+    "1 Year": "month",
+  };
+
+  const statCards = [
+    {
+      label: "Total Inflow",
+      value: currentStatData.inflow,
+      iconSrc: assets.metricUpGreenIcon,
+      iconAlt: "Inflow Icon",
+      metric: currentStatData.inflowMetric,
+      textColor: "#4545FE",
+    },
+    {
+      label: "MRR",
+      value: currentStatData.mrr,
+      iconSrc: assets.metricUpGreenIcon,
+      iconAlt: "MRR Icon",
+      metric: currentStatData.mrrMetric,
+      textColor: "#12B76A",
+    },
+    {
+      label: "Commission Revenue",
+      value: currentStatData.commission,
+      iconSrc: assets.metricNeutralGreenIcon,
+      iconAlt: "Commission Icon",
+      metric: currentStatData.commissionMetric,
+      textColor: "#14B8A6",
+    },
+    {
+      label: "GMV",
+      value: currentStatData.gmv,
+      iconSrc: assets.metricDownRedIcon,
+      iconAlt: "GMV Icon",
+      metric: currentStatData.gmvMetric,
+      textColor: "#F04438",
+    },
+  ];
+
+  const overText =
+    activeTab === "1 Week"
+      ? "Showing overview based on last 7 days"
+      : activeTab === "1 Month"
+      ? "Showing overview based on last 30 days"
+      : "Showing overview based on last 12 months";
 
   return (
     <div className="col-span-2 bg-white rounded-2xl shadow">
       <div className="flex items-center justify-between mb-4 p-4">
         <div>
           <h2 className="text-lg font-semibold mb-2">Sales Overview</h2>
-          <span className="text-[#606060] text-[0.75rem]">
-            Showing overview based on {activeTab}
-          </span>
+          <span className="text-[#606060] text-[0.75rem]">{overText}</span>
         </div>
         <button className="font-medium text-[0.75rem] border border-[#d6d6d6] text-[#191919] px-7 py-3 rounded-3xl">
           View Transactions
@@ -54,7 +98,7 @@ const SalesOverviewCard: React.FC = () => {
               className="cursor-pointer opacity-50"
             />
           </div>
-          <SalesChart data={currentChartData} xKey={xKey} />
+          <SalesChart data={currentChartData} xKey={xKeyMap[activeTab]} />
         </div>
 
         <div className="relative grid grid-cols-2 gap-4 shadow-[-6px_0_6px_-4px_rgba(0,0,0,0.12)] pl-10 py-2">
@@ -67,42 +111,9 @@ const SalesOverviewCard: React.FC = () => {
             />
           </div>
 
-          <StatCard
-            label="Total Inflow"
-            value={currentStatData.inflow}
-            iconSrc={assets.metricUpGreenIcon}
-            iconAlt="Inflow Icon"
-            iconSize={14}
-            metric={currentStatData.inflowMetric}
-            textColor="#4545FE"
-          />
-          <StatCard
-            label="MRR"
-            value={currentStatData.mrr}
-            iconSrc={assets.metricUpGreenIcon}
-            iconAlt="MRR Icon"
-            iconSize={14}
-            metric={currentStatData.mrrMetric}
-            textColor="#12B76A"
-          />
-          <StatCard
-            label="Commission Revenue"
-            value={currentStatData.commission}
-            iconSrc={assets.metricNeutralGreenIcon}
-            iconAlt="Commission Icon"
-            iconSize={14}
-            metric={currentStatData.commissionMetric}
-            textColor="#14B8A6"
-          />
-          <StatCard
-            label="GMV"
-            value={currentStatData.gmv}
-            iconSrc={assets.metricDownRedIcon}
-            iconAlt="GMV Icon"
-            iconSize={14}
-            metric={currentStatData.gmvMetric}
-            textColor="#F04438"
-          />
+          {statCards.map((card) => (
+            <StatCard key={card.label} {...card} iconSize={14} />
+          ))}
         </div>
       </div>
     </div>
