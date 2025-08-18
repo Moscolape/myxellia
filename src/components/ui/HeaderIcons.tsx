@@ -4,10 +4,12 @@ import { assets } from "../../constants/assets";
 import Tooltip from "./ToolTip";
 import BudgetingCard from "../modals/BudgetingCard";
 import ModalOverlay from "../ModalOverlay";
+import CalendarDrawer from "./Calendar";
 
 const HeaderIcons: React.FC = () => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
   const [isBudgetModalOpen, setIsBudgetModalOpen] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   return (
     <div className="flex items-center gap-6 relative">
@@ -45,7 +47,7 @@ const HeaderIcons: React.FC = () => {
           alt="Calendar Icon"
           size={32}
           className="cursor-pointer"
-          onClick={() => {}}
+          onClick={() => setIsCalendarOpen(true)}
         />
         <Tooltip text="Calendar" isVisible={hoveredIcon === "calendar"} />
       </div>
@@ -65,6 +67,11 @@ const HeaderIcons: React.FC = () => {
       >
         <BudgetingCard />
       </ModalOverlay>
+
+      <CalendarDrawer
+        isOpen={isCalendarOpen}
+        onClose={() => setIsCalendarOpen(false)}
+      />
     </div>
   );
 };

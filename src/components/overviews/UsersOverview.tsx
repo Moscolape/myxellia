@@ -6,8 +6,8 @@ import OverviewCard from "../ui/OverviewCard";
 const UsersOverviewCard: React.FC = () => {
   return (
     <OverviewCard
-      title="Listings Overview"
-      iconUrl={assets.listingsOverviewIcon}
+      title="Users Overview"
+      iconUrl={assets.usersOverviewIcon}
     >
       <OverviewMetric label="Total" value="20.7k" />
       <OverviewMetric label="Riders" value="8.5k" />

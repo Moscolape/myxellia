@@ -8,7 +8,7 @@ const Dashboard = () => {
     <div className="font-euclid bg-[#fbfcfc]">
       <Header />
       <Navigation />
-      <div className="px-12 pt-5 pb-10">
+      <div className="px-12 py-10 top-[4.1875rem] relative">
         <h1 className="font-semibold text-[1.25rem] font-euclid">
           Welcome, Ahmed
         </h1>

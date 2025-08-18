@@ -24,6 +24,7 @@ import setBudgetIcon from "../assets/icons/setting-4.svg";
 import trackBudgetIcon from "../assets/icons/trend-up.svg";
 import adjustFiguresIcon from "../assets/icons/align-bottom.svg";
 import budgetSketchImage from "../assets/images/Sketch.jpg";
+import arrowLeftIcon from "../assets/icons/Arrow - Right.png";
 
 export const assets = {
   logo,
@@ -51,5 +52,6 @@ export const assets = {
   setBudgetIcon,
   trackBudgetIcon,
   adjustFiguresIcon,
-  budgetSketchImage
+  budgetSketchImage,
+  arrowLeftIcon
 };

@@ -5,7 +5,7 @@ import { assets } from "../../constants/assets";
 
 const Navigation: React.FC = () => {
   return (
-    <nav className="flex items-center justify-between h-[4.1875rem] px-12 bg-white border-b border-[#f4f4f5]">
+    <nav className="flex items-center justify-between h-[4.1875rem] px-12 bg-white border-b border-[#f4f4f5] relative top-[5.125rem]">
       <div className="flex gap-12 py-2.5">
         <NavLink
           src={assets.dashboardIcon}

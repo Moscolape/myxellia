@@ -4,7 +4,7 @@ import HeaderIcons from "../ui/HeaderIcons";
 
 const Header: React.FC = () => {
   return (
-    <header className="w-full h-[5.125rem] px-12 bg-[#191919] text-white flex items-center justify-between">
+    <header className="w-full h-[5.125rem] px-12 bg-[#191919] text-white flex items-center justify-between fixed top-0 z-50">
       <img src={assets.logo} alt="Myxellia Logo" className="h-8 w-auto block" />
       <div className="flex items-center gap-6">
         <HeaderIcons />
