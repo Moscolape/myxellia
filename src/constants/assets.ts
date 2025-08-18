@@ -20,6 +20,10 @@ import drawerLeftIcon from "../assets/icons/DrawerLeft.svg";
 import imageOne from "../assets/images/Image1.jpg";
 import imageTwo from "../assets/images/Image2.jpg";
 import imageThree from "../assets/images/Image3.jpg";
+import setBudgetIcon from "../assets/icons/setting-4.svg";
+import trackBudgetIcon from "../assets/icons/trend-up.svg";
+import adjustFiguresIcon from "../assets/icons/align-bottom.svg";
+import budgetSketchImage from "../assets/images/Sketch.jpg";
 
 export const assets = {
   logo,
@@ -43,5 +47,9 @@ export const assets = {
   drawerRightIcon,
   imageOne,
   imageTwo,
-  imageThree
+  imageThree,
+  setBudgetIcon,
+  trackBudgetIcon,
+  adjustFiguresIcon,
+  budgetSketchImage
 };
