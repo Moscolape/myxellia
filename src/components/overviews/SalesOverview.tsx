@@ -2,6 +2,7 @@ import React from "react";
 import Tabs from "../ui/Tabs";
 import StatCard from "../ui/StatCard";
 import { assets } from "../../constants/assets";
+import SalesChart from "../charts/SalesChart";
 
 const SalesOverviewCard: React.FC = () => {
   return (
@@ -21,11 +22,11 @@ const SalesOverviewCard: React.FC = () => {
       <Tabs />
 
       <div className="grid grid-cols-2 gap-4 p-4">
-        <div className="col-span-1 bg-gray-50 rounded-xl flex items-center justify-center">
-          <span className="text-gray-400 text-sm">[Chart Placeholder]</span>
+        <div className="col-span-1">
+          <SalesChart />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 shadow-[-6px_0_6px_-4px_rgba(0,0,0,0.12)] px-7">
           <StatCard
             label="Total Inflow"
             value="120,000,000.00"
