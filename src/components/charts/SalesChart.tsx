@@ -7,22 +7,27 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { data } from "../../data/chartData";
 
+interface SalesChartData {
+  inflow: number;
+  revenue: number;
+  gmv: number;
+  [key: string]: string | number;
+}
 
-const SalesChart: React.FC = () => {
+interface SalesChartProps {
+  data: SalesChartData[];
+  xKey: string;
+}
+
+const SalesChart: React.FC<SalesChartProps> = ({ data, xKey }) => {
   return (
     <ResponsiveContainer width="100%" height={250}>
       <BarChart data={data} barGap={3}>
-        <XAxis dataKey="month" tick={{ fontSize: 10, fill: "#6b7280" }} />
+        <XAxis dataKey={xKey} tick={{ fontSize: 10, fill: "#6b7280" }} />
 
         <YAxis
-          domain={[0, 100000000]}
-          ticks={[
-            0, 10000000, 20000000, 30000000, 40000000,
-            50000000, 60000000, 70000000, 80000000,
-            90000000, 100000000,
-          ]}
+          domain={[0, "dataMax"]}
           tick={{ fontSize: 10, fill: "#6b7280" }}
           tickFormatter={(value) => `${value / 1000000}M`}
         />

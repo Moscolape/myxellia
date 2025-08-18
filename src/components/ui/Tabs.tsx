@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Tabs: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("1 Year");
+interface TabsProps {
+  activeTab: string;
+  onTabChange: (tab: string) => void;
+}
 
+const Tabs: React.FC<TabsProps> = ({ activeTab, onTabChange }) => {
   const tabs = ["1 Week", "1 Month", "1 Year"];
 
   return (
@@ -10,8 +13,8 @@ const Tabs: React.FC = () => {
       {tabs.map((tab) => (
         <button
           key={tab}
-          onClick={() => setActiveTab(tab)}
-          className={`text-sm font-medium transition-colors px-3 py-2 cursor-pointer ${
+          onClick={() => onTabChange(tab)}
+          className={`text-sm font-medium transition-colors px-3 py-2 cursor-pointer hover:bg-[#f5f5f5] ${
             activeTab === tab
               ? "text-black font-semibold bg-[#f5f5f5] rounded-lg"
               : "text-[#3d3d3d] hover:text-gray-700"

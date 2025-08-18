@@ -3,7 +3,7 @@ import { assets } from "../../constants/assets";
 
 const BudgetingCard: React.FC = () => {
   return (
-    <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white">
+    <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white animate-hop">
       <div className="bg-[#0C2841] flex justify-center items-center h-48 pt-6 px-6">
         <img
           src={assets.budgetSketchImage}
