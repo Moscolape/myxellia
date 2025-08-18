@@ -15,6 +15,11 @@ import chevronRightIcon from "../assets/icons/ChevronRight.svg";
 import metricUpGreenIcon from "../assets/icons/Frame.svg";
 import metricDownRedIcon from "../assets/icons/Frame (2).svg";
 import metricNeutralGreenIcon from "../assets/icons/Frame (1).svg";
+import drawerRightIcon from "../assets/icons/DrawerRight.svg";
+import drawerLeftIcon from "../assets/icons/DrawerLeft.svg";
+import imageOne from "../assets/images/Image1.jpg";
+import imageTwo from "../assets/images/Image2.jpg";
+import imageThree from "../assets/images/Image3.jpg";
 
 export const assets = {
   logo,
@@ -33,5 +38,10 @@ export const assets = {
   chevronRightIcon,
   metricUpGreenIcon,
   metricDownRedIcon,
-  metricNeutralGreenIcon
+  metricNeutralGreenIcon,
+  drawerLeftIcon,
+  drawerRightIcon,
+  imageOne,
+  imageTwo,
+  imageThree
 };

@@ -22,14 +22,14 @@ const HeaderIcons: React.FC = () => {
         src={assets.calendarIcon}
         alt="Calendar Icon"
         size={32}
-        className="pointer-events-none"
+        onClick={() => {}}
+        className="cursor-pointer"
       />
       <Icon
         src={assets.messageIcon}
         alt="Message Notifications Icon"
         size={32}
-        onClick={() => {}}
-        className="cursor-pointer"
+        className="pointer-events-none"
       />
     </div>
   );

@@ -3,6 +3,7 @@ import Tabs from "../ui/Tabs";
 import StatCard from "../ui/StatCard";
 import { assets } from "../../constants/assets";
 import SalesChart from "../charts/SalesChart";
+import Icon from "../ui/Icons";
 
 const SalesOverviewCard: React.FC = () => {
   return (
@@ -22,11 +23,28 @@ const SalesOverviewCard: React.FC = () => {
       <Tabs />
 
       <div className="grid grid-cols-2 gap-4 p-4">
-        <div className="col-span-1">
+        <div className="col-span-1 relative">
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2">
+            <Icon
+              src={assets.drawerLeftIcon}
+              alt="Side Icon"
+              size={18}
+              className="cursor-pointer opacity-50"
+            />
+          </div>
           <SalesChart />
         </div>
 
-        <div className="grid grid-cols-2 gap-4 shadow-[-6px_0_6px_-4px_rgba(0,0,0,0.12)] px-7">
+        <div className="relative grid grid-cols-2 gap-4 shadow-[-6px_0_6px_-4px_rgba(0,0,0,0.12)] pl-10 py-2">
+          <div className="absolute left-5 top-1/2 -translate-y-1/2 -translate-x-1/2">
+            <Icon
+              src={assets.drawerRightIcon}
+              alt="Side Icon"
+              size={18}
+              className="cursor-pointer"
+            />
+          </div>
+
           <StatCard
             label="Total Inflow"
             value="120,000,000.00"
