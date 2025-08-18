@@ -55,14 +55,14 @@ const HeaderIcons: React.FC = () => {
 
       <HeaderIconButton
         src={assets.calculatorIcon}
-        alt="Budgeting"
+        alt="Calculator Icon"
         tooltip="Budgeting"
         onClick={() => setIsBudgetModalOpen(true)}
       />
 
       <HeaderIconButton
         src={assets.calendarIcon}
-        alt="Calendar"
+        alt="Calendar Icon"
         tooltip="Calendar"
         onClick={() => setIsCalendarOpen(true)}
       />

@@ -10,4 +10,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Remove the test property from Vite config; configure Vitest separately if needed.
 });
