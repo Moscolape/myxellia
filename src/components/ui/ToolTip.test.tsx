@@ -5,12 +5,12 @@ import { describe, expect, it } from "vitest";
 
 describe("Tooltip", () => {
   it("does not render when isVisible is false", () => {
-    render(<Tooltip text="Hello" isVisible={false} />);
-    expect(screen.queryByText("Hello")).not.toBeInTheDocument();
+    render(<Tooltip text="Budgeting" isVisible={false} />);
+    expect(screen.queryByText("Budgeting")).not.toBeInTheDocument();
   });
 
   it("renders text when isVisible is true", () => {
-    render(<Tooltip text="Hello" isVisible={true} />);
-    expect(screen.getByText("Hello")).toBeInTheDocument();
+    render(<Tooltip text="Calendar" isVisible={true} />);
+    expect(screen.getByText("Calendar")).toBeInTheDocument();
   });
 });

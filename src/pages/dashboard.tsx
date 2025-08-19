@@ -1,7 +1,7 @@
 import Header from "../components/layouts/Header";
-import ImagesGrid from "../components/layouts/Images";
+import ImagesGrid from "../components/layouts/ImagesGrid";
 import Navigation from "../components/layouts/Navigation";
-import Overviews from "../components/layouts/Overview";
+import Overviews from "../components/layouts/Overviews";
 
 const Dashboard = () => {
   return (
