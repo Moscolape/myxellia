@@ -2,6 +2,9 @@ import React from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import Icon from "../ui/Icons";
 
+/**
+ * Props for a navigation link
+ */
 type NavLinkProps = {
   src: string;
   alt: string;
@@ -11,6 +14,12 @@ type NavLinkProps = {
   disabled?: boolean;
 };
 
+/**
+ * NavLink Component
+ *
+ * Displays a navigation link with an icon and label.
+ * Supports disabled state and highlights active link using react-router's NavLink.
+ */
 const NavLink: React.FC<NavLinkProps> = ({
   src,
   alt,

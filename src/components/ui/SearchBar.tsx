@@ -2,12 +2,20 @@ import React from "react";
 import Icon from "./Icons";
 import { assets } from "../../constants/assets";
 
+/**
+ * Props for SearchBar component
+ */
 type SearchBarProps = {
   placeholder?: string;
   type?: string;
   className?: string;
 };
 
+/**
+ * SearchBar Component
+ *
+ * Displays a search input with an icon. Supports custom styling via className.
+ */
 const SearchBar: React.FC<SearchBarProps> = ({
   placeholder,
   type,

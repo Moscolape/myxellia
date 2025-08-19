@@ -1,10 +1,18 @@
 import React from "react";
 
+/**
+ * Props for Tooltip component
+ */
 interface TooltipProps {
-  text: string;
-  isVisible: boolean;
+  text: string; // Tooltip content
+  isVisible: boolean; // Whether to display the tooltip
 }
 
+/**
+ * Tooltip Component
+ *
+ * Shows a floating tooltip above an element when visible.
+ */
 const Tooltip: React.FC<TooltipProps> = ({ text, isVisible }) => {
   if (!isVisible) return null;
 

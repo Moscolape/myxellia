@@ -2,12 +2,20 @@ import React from "react";
 import Icon from "./Icons";
 import { assets } from "../../constants/assets";
 
+/**
+ * Props for OverviewCard component
+ */
 type OverviewCardProps = {
   title: string;
   iconUrl: string;
   children?: React.ReactNode;
 };
 
+/**
+ * OverviewCard Component
+ *
+ * Displays a card with a header (icon + title + "View all") and a body for metrics or other children components.
+ */
 const OverviewCard: React.FC<OverviewCardProps> = ({
   title,
   iconUrl,
@@ -15,6 +23,7 @@ const OverviewCard: React.FC<OverviewCardProps> = ({
 }) => {
   return (
     <div className="flex-1 bg-white rounded-2xl shadow h-[8.5rem]">
+      {/* Header */}
       <div className="flex items-center justify-between bg-[#f9fafb] p-4 border-b border-b-[#e4e4e4]">
         <div className="flex items-center font-medium">
           <Icon src={iconUrl} alt={`${title} icon`} />
@@ -30,6 +39,8 @@ const OverviewCard: React.FC<OverviewCardProps> = ({
           />
         </span>
       </div>
+
+      {/* Body */}
       <div className="p-4 flex items-center justify-between h-[calc(100%-3rem)]">
         {children}
       </div>

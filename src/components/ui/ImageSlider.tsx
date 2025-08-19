@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+/**
+ * Props for ImageSlider component
+ */
 interface ImageSliderProps {
   title: string;
   text: string;
@@ -7,6 +10,12 @@ interface ImageSliderProps {
   interval?: number;
 }
 
+/**
+ * ImageSlider Component
+ *
+ * Cycles through images with a fade effect and displays title/text overlay.
+ * Dots at the bottom allow manual slide selection.
+ */
 const ImageSlider: React.FC<ImageSliderProps> = ({
   title,
   text,
@@ -25,6 +34,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
 
   return (
     <div className="relative w-full h-[17.875rem] overflow-hidden rounded-xl">
+      {/* Image slides */}
       {images.map((src, index) => (
         <div
           key={index}
@@ -41,6 +51,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         </div>
       ))}
 
+      {/* Navigation dots */}
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
         {images.map((_, index) => (
           <span

@@ -1,10 +1,18 @@
 import React from "react";
 
+/**
+ * Props for Tabs component
+ */
 interface TabsProps {
-  activeTab: string;
-  onTabChange: (tab: string) => void;
+  activeTab: string; // Currently active tab
+  onTabChange: (tab: string) => void; // Callback when a tab is clicked
 }
 
+/**
+ * Tabs Component
+ *
+ * Displays selectable tabs ("1 Week", "1 Month", "1 Year") for filtering or switching views.
+ */
 const Tabs: React.FC<TabsProps> = ({ activeTab, onTabChange }) => {
   const tabs = ["1 Week", "1 Month", "1 Year"];
 

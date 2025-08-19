@@ -1,12 +1,20 @@
 import React, { useRef } from "react";
 import useClickOutside from "../hooks/useClickOutside";
 
+/**
+ * Props for ModalOverlay component
+ */
 interface ModalOverlayProps {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
+  isOpen: boolean; // Whether modal is open
+  onClose: () => void; // Function to close modal
+  children: React.ReactNode; // Modal content
 }
 
+/**
+ * ModalOverlay Component
+ *
+ * Displays a modal overlay with darkened background. Closes when clicking outside the modal content.
+ */
 const ModalOverlay: React.FC<ModalOverlayProps> = ({
   isOpen,
   onClose,
@@ -14,7 +22,7 @@ const ModalOverlay: React.FC<ModalOverlayProps> = ({
 }) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
 
-  useClickOutside(modalRef, onClose);
+  useClickOutside(modalRef, onClose); // Close modal if user clicks outside
 
   if (!isOpen) return null;
 

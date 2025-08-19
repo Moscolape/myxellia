@@ -6,6 +6,9 @@ import BudgetingCard from "../modals/BudgetingCard";
 import ModalOverlay from "../ModalOverlay";
 import CalendarDrawer from "./CalendarDrawer";
 
+/**
+ * Props for a single icon button in the header
+ */
 interface HeaderIconButtonProps {
   src: string;
   alt: string;
@@ -14,6 +17,11 @@ interface HeaderIconButtonProps {
   onClick?: () => void;
 }
 
+/**
+ * HeaderIconButton Component
+ *
+ * Displays an icon in the header with optional tooltip and click handling.
+ */
 const HeaderIconButton: React.FC<HeaderIconButtonProps> = ({
   src,
   alt,
@@ -35,16 +43,21 @@ const HeaderIconButton: React.FC<HeaderIconButtonProps> = ({
         size={size}
         onClick={onClick}
         className={`cursor-pointer transition-transform duration-150 
-          ${
-            onClick ? "hover:scale-110 active:scale-95" : "pointer-events-none"
-          }`}
+          ${onClick ? "hover:scale-110 active:scale-95" : "pointer-events-none"}`}
       />
 
+      {/* Tooltip displayed on hover if clickable */}
       {onClick && <Tooltip text={tooltip ?? ""} isVisible={hovered} />}
     </div>
   );
 };
 
+/**
+ * HeaderIcons Component
+ *
+ * Contains all interactive header icons such as notifications, calculator, calendar, and messages.
+ * Opens modals or drawers when specific icons are clicked.
+ */
 const HeaderIcons: React.FC = () => {
   const [isBudgetModalOpen, setIsBudgetModalOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -69,6 +82,7 @@ const HeaderIcons: React.FC = () => {
 
       <HeaderIconButton src={assets.messageIcon} alt="Messages" />
 
+      {/* Budget modal */}
       <ModalOverlay
         isOpen={isBudgetModalOpen}
         onClose={() => setIsBudgetModalOpen(false)}
@@ -76,6 +90,7 @@ const HeaderIcons: React.FC = () => {
         <BudgetingCard />
       </ModalOverlay>
 
+      {/* Calendar drawer */}
       <CalendarDrawer
         isOpen={isCalendarOpen}
         onClose={() => setIsCalendarOpen(false)}
