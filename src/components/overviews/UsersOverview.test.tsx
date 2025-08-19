@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import UsersOverviewCard from "./UsersOverview";
 import { describe, expect, vi, it } from "vitest";
 
-
 type OverviewCardProps = {
   title: string;
   children: React.ReactNode;
@@ -14,7 +13,7 @@ type OverviewMetricProps = {
   value: string | number;
 };
 
-
+// Mock child components
 vi.mock("../ui/OverviewCard", () => ({
   default: ({ title, children }: OverviewCardProps) => (
     <div data-testid="overview-card">
@@ -34,9 +33,9 @@ vi.mock("../ui/OverviewMetric", () => ({
 }));
 
 describe("UsersOverviewCard", () => {
+  // Test that the UsersOverviewCard renders correctly with all metrics
   it("renders correctly with metrics", () => {
     render(<UsersOverviewCard />);
-
     expect(screen.getByText("Users Overview")).toBeInTheDocument();
     expect(screen.getByText("Total")).toBeInTheDocument();
     expect(screen.getByText("20.7k")).toBeInTheDocument();

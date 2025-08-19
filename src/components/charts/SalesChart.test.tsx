@@ -14,7 +14,7 @@ interface BarProps {
   dataKey: string;
 }
 
-// Mock Recharts components
+// Mock Recharts components to simplify rendering and testing
 vi.mock("recharts", async () => {
   const actual = await vi.importActual<typeof import("recharts")>("recharts");
   return {
@@ -28,12 +28,14 @@ vi.mock("recharts", async () => {
   };
 });
 
+// Sample mock data for testing
 const mockData = [
   { day: "Mon", inflow: 1000000, revenue: 500000, gmv: 200000 },
   { day: "Tue", inflow: 2000000, revenue: 1500000, gmv: 500000 },
 ];
 
 describe("SalesChart", () => {
+  // Test if component renders and shows axis correctly
   it("renders without crashing and shows correct axis", () => {
     render(<SalesChart data={mockData} xKey="day" />);
     expect(screen.getByText("XAxis-day")).toBeInTheDocument();
@@ -41,6 +43,7 @@ describe("SalesChart", () => {
     expect(screen.getByText("Tooltip")).toBeInTheDocument();
   });
 
+  // Test if bars for all metrics are rendered
   it("renders bars for inflow, revenue, and gmv", () => {
     render(<SalesChart data={mockData} xKey="day" />);
     expect(screen.getByText("Bar-inflow")).toBeInTheDocument();

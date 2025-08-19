@@ -9,6 +9,7 @@ vi.mock("../hooks/useClickOutside", () => ({
 
 describe("ModalOverlay", () => {
   it("does not render when isOpen is false", () => {
+    // ModalOverlay should render nothing if isOpen is false
     const { container } = render(
       <ModalOverlay isOpen={false} onClose={vi.fn()}>
         <div>Modal Content</div>
@@ -18,6 +19,7 @@ describe("ModalOverlay", () => {
   });
 
   it("renders children when isOpen is true", () => {
+    // ModalOverlay renders children when open
     render(
       <ModalOverlay isOpen={true} onClose={vi.fn()}>
         <div>Modal Content</div>
@@ -27,12 +29,10 @@ describe("ModalOverlay", () => {
   });
 
   it("calls onClose when clicking outside", () => {
+    // Test that clicking outside triggers onClose using mocked hook
     const onClose = vi.fn();
-
     (useClickOutside as unknown as ReturnType<typeof vi.fn>).mockImplementation(
-      (_ref: React.RefObject<HTMLDivElement>, handler: () => void) => {
-        handler();
-      }
+      (_ref, handler) => handler()
     );
 
     render(

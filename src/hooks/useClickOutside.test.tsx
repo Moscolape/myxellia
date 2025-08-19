@@ -5,8 +5,8 @@ import useClickOutside from "./useClickOutside";
 
 describe("useClickOutside hook", () => {
   it("calls handler when clicking outside", () => {
+    // Tests that clicking outside the referenced element triggers the handler
     const handler = vi.fn();
-
     const TestComponent: React.FC = () => {
       const ref = useRef<HTMLDivElement>(null);
       useClickOutside(ref, handler);
@@ -20,7 +20,6 @@ describe("useClickOutside hook", () => {
     expect(handler).toHaveBeenCalledTimes(1);
 
     handler.mockReset();
-
     fireEvent.mouseDown(insideDiv);
     expect(handler).not.toHaveBeenCalled();
   });

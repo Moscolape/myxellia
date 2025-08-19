@@ -13,7 +13,7 @@ type OverviewMetricProps = {
   value: string | number;
 };
 
-// Mock child components with proper types
+// Mock child components to isolate ListingsOverviewCard
 vi.mock("../ui/OverviewCard", () => ({
   default: ({ title, children }: OverviewCardProps) => (
     <div data-testid="overview-card">
@@ -33,9 +33,9 @@ vi.mock("../ui/OverviewMetric", () => ({
 }));
 
 describe("ListingsOverviewCard", () => {
+  // Test that the card renders correctly with all metrics
   it("renders correctly with metrics", () => {
     render(<ListingsOverviewCard />);
-
     expect(screen.getByText("Listings Overview")).toBeInTheDocument();
     expect(screen.getByText("Total")).toBeInTheDocument();
     expect(screen.getByText("1.8k")).toBeInTheDocument();

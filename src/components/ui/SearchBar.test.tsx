@@ -7,8 +7,10 @@ vi.mock("./Icons", () => ({ default: ({ alt }: { alt: string }) => <div>{alt}</d
 
 describe("SearchBar", () => {
   it("renders input and icon correctly", () => {
+    // Check that the placeholder input and mocked icon are rendered
     render(<SearchBar placeholder="Search here" />);
     expect(screen.getByPlaceholderText("Search here")).toBeInTheDocument();
     expect(screen.getByText("Search")).toBeInTheDocument(); // mocked icon
   });
 });
+

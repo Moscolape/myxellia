@@ -9,9 +9,11 @@ vi.mock("../components/layouts/Overview", () => ({ default: () => <div>Overviews
 
 describe("Dashboard", () => {
   it("renders header, navigation, overviews, and images grid", () => {
+    // Tests that all main layout components are rendered
     render(<Dashboard />);
     expect(screen.getByText("Header")).toBeInTheDocument();
     expect(screen.getByText("Navigation")).toBeInTheDocument();
     expect(screen.getByText("Welcome, Ahmed")).toBeInTheDocument();
   });
 });
+

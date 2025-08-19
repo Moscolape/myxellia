@@ -6,6 +6,7 @@ vi.mock("../ui/Icons", () => ({ default: ({ alt }: { alt: string }) => <div>{alt
 
 describe("StatCard", () => {
   it("renders label, value, metric and icon", () => {
+    // Verify that all props (label, value, metric, icon) are displayed correctly
     render(
       <StatCard
         label="Profit"

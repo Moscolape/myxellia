@@ -8,7 +8,7 @@ describe("ImageSlider", () => {
   const text = "Test Text";
 
   beforeEach(() => {
-    vi.useFakeTimers();
+    vi.useFakeTimers(); // Use fake timers to control slideshow interval
   });
 
   afterEach(() => {
@@ -16,6 +16,7 @@ describe("ImageSlider", () => {
     vi.useRealTimers();
   });
 
+  // Test that the first image is visible initially
   it("renders the first image initially", () => {
     render(<ImageSlider title={title} text={text} images={images} interval={1000} />);
     const imgs = screen.getAllByAltText(title);
@@ -24,23 +25,21 @@ describe("ImageSlider", () => {
     expect(imgs[2].parentElement).toHaveClass("opacity-0");
   });
 
+  // Test automatic cycling of images using the interval
   it("cycles images automatically with interval", () => {
     render(<ImageSlider title={title} text={text} images={images} interval={1000} />);
     const imgs = screen.getAllByAltText(title);
 
-    // Advance to second image
     act(() => {
-      vi.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000); // Move to second image
     });
     expect(imgs[0].parentElement).toHaveClass("opacity-0");
     expect(imgs[1].parentElement).toHaveClass("opacity-100");
 
-    // Advance to third image
     act(() => {
-      vi.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000); // Move to third image
     });
     expect(imgs[1].parentElement).toHaveClass("opacity-0");
     expect(imgs[2].parentElement).toHaveClass("opacity-100");
   });
-
 });

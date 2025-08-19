@@ -2,9 +2,10 @@ import { render, screen } from "@testing-library/react";
 import ImagesGrid from "./ImagesGrid";
 import { expect, vi, describe, it } from "vitest";
 
-
+// Mock ImageSlider component
 vi.mock("../ui/ImageSlider", () => ({ default: ({ title }: { title: string }) => <div>{title}</div> }));
 
+// Mock sliderData
 vi.mock("../../data/sliderData", () => ({
   sliderData: [
     { title: "Slider 1", text: "Text 1", images: ["img1.jpg"] },
@@ -13,6 +14,7 @@ vi.mock("../../data/sliderData", () => ({
 }));
 
 describe("ImagesGrid", () => {
+  // Test that all sliders from data are rendered
   it("renders all sliders from sliderData", () => {
     render(<ImagesGrid />);
     expect(screen.getByText("Slider 1")).toBeInTheDocument();
